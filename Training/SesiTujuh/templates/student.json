@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name" : "Doni",
+      "job" : "Programmer",
+      "age" : 23,
+      "social" : {
+        "facebook" : "https://facebook.com",
+        "twitter" : "https://twitter.com"
+      }
+    },
+    {
+      "name" : "Astrid",
+      "job" : "Student",
+      "age" : 17,
+      "social" : {
+        "facebook" : "https://facebook.com",
+        "twitter" : "https://twitter.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+        <html>
+            <head>
+				<meta charset="UTF-8">		
+                <title>Menu</title>
+
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                    crossorigin="anonymous">
+
+                <link href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css" rel="stylesheet">
+
+                <style>
+                    .bd-placeholder-img {
+                    font-size: 1.125rem;
+                    text-anchor: middle;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    }
+
+                    @media (min-width: 768px) {
+                    .bd-placeholder-img-lg {
+                        font-size: 3.5rem;
+                    }
+                    }
+
+                    #wrapper {
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        background: gray;
+                        text-align: center;
+                    }
+
+                    #wrapper1 {
+                        width: 100%;
+                        position: absolute;
+                        top: 70px;
+                    }
+                </style>
+            </head>
+            <body onload="checkCookie()">
+                <form class="form-menu" id="wrapper" action="/mainmenu" method="post">
+                    <div>
+                        <button type="submit" name="submit" value="mainmenu" >mainmenu</button>
+                        <button type="submit" name="submit" value="article">article</button>
+                        <button type="submit" name="submit" value="logout">logout</button>
+                    </div>
+                </form>
+                <form class="form-listuser" id="wrapper1" action="/mainmenu" method="post">
+                    <div>
+                        <table width="20%" style="margin: 0 auto; border:1px solid;text-align:center">
+                        <tr>
+                            <th width="9px"></th>
+                            <th width="1px"></th> 
+                            <th width="80px"></th>
+                        </tr>
+                        <tr>
+                            <td><label for="inputUsername" >Username</label></td>
+                            <td>:</td>
+                            <td><input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" readonly required autofocus value= {{ .UserName }}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="inputPassword" >Password</label></td>
+                            <td>:</td>
+                            <td><input type="text" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required value= {{ .Password }}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="inputAdmin" >Admin</label></td>
+                            <td>:</td>
+                            <td><input type="text" id="inputAdmin" name="inputAdmin" maxlength="1" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"  class="form-control" placeholder="0/1" required value= {{ .IsAdmin }}></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><button type="submit" name="submit" value= "update">Update</button></td>
+                        </tr>
+                        </table>
+                    </div>
+                </form>
+                  <script>
+                    //  var a = document.getElementById("inputAdmin").value;
+                    //  if(a==0){
+                    //      document.getElementById("inputAdmin").readOnly=true;
+                    //  }
+
+                    function getCookie(cname) {
+                        var name = cname + "=";
+                        var decodedCookie = decodeURIComponent(document.cookie);
+                        var ca = decodedCookie.split(';');
+                        for(var i = 0; i <ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                            }
+                            if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                            }
+                        }
+                        return "";
+                    }
+
+                    function checkCookie() {
+                        var admin = getCookie("IsAdmin");
+                        if (admin == "0") {
+                            document.getElementById("inputAdmin").readOnly=true;
+                        }
+                    }
+
+                </script>  
+            </body>
+        </html>
+       

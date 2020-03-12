@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+        <html>
+            <head>
+				<meta charset="UTF-8">		
+                <title>Article</title>
+
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                    crossorigin="anonymous">
+
+                <link href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css" rel="stylesheet">
+
+                <style>
+                    .bd-placeholder-img {
+                    font-size: 1.125rem;
+                    text-anchor: middle;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    }
+
+                    @media (min-width: 768px) {
+                    .bd-placeholder-img-lg {
+                        font-size: 3.5rem;
+                    }
+                    }
+
+                    #wrapper {
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        background: gray;
+                        text-align: center;
+                    }
+
+                    #wrapper1 {
+                        width: 100%;
+                        position: absolute;
+                        top: 70px;
+                    }
+
+                     #wrapper2 {
+                        width: 100%;
+                        position: absolute;
+                        top: 300px;
+                    }
+                </style>
+            </head>
+            <body>
+                <form class="form-menu" id="wrapper" action="/article" method="post">
+                    <div>
+                        <button type="submit" name="submit" value="mainmenu" >mainmenu</button>
+                        <button type="submit" name="submit" value="article">article</button>
+                        <button type="submit" name="submit" value="logout">logout</button>
+                    </div>
+                </form>
+                <form class="form-listuser" id="wrapper1" action="/article" method="post">
+                    <div>
+                        <table width="20%" style="margin: 0 auto; border:1px solid;text-align:center">
+                        <tr>
+                            <th width="9px"></th>
+                            <th width="1px"></th> 
+                            <th width="80px"></th>
+                        </tr>
+                        <tr>
+                            <td><label for="inputUsername" >Judul</label></td>
+                            <td>:</td>
+                            <td><input type="text" id="inputJudul" name="inputJudul" class="form-control" placeholder="Judul" required autofocus></td>
+                        </tr>
+                        <tr>
+                            <td><label for="inputIsi" >Isi</label></td>
+                            <td>:</td>
+                            <td><input type="text" id="inputIsi" name="inputIsi" class="form-control" placeholder="Isi" required ></td>
+                        </tr>
+                        <tr>
+                            <td><label for="inputPeriode" >Admin</label></td>
+                            <td>:</td>
+                            <td><input type="text" id="inputPeriode" name="inputPeriode" maxlength="6" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"  class="form-control" placeholder="yyyyMM" required ></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><button type="submit" name="submit" value= "add">Add</button></td>
+                        </tr>
+                        </table>
+                    </div>
+                </form>
+
+                <form class="form-listuser" id="wrapper2" action="/article" method="post">
+                    <table cellpadding="10" width="100%" style="margin: 0 auto; border:1px solid;text-align:left; background: aqua">
+                        <tr>
+                            <th width="50px">Periode</th>
+                            <th width="500px">Judul</th>
+                            <th width="1000px">Isi</th> 
+                        </tr>
+                    </table>
+                {{range .}}
+                    <div> 
+                        <table cellpadding="10" width="100%" style="margin: 0 auto; border:1px solid;text-align:left">
+                        <tr>
+                            <th width="50px"></th>
+                            <th width="500px"></th>
+                            <th width="1000px"></th> 
+                        </tr>
+                        <tr>
+                            <td>{{ .Periode }}</td>
+                            <td>{{ .Subject }}</td>
+                            <td>{{ .News }}</td>
+                        </tr>
+                        </table>
+                    </div>
+                {{else}}
+                    <div>
+                        <strong>Tidak ada article</strong>
+                    </div>
+                {{end}}
+            </form>
+            </body>
+        </html>

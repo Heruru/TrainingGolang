@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+
+        <link href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css" rel="stylesheet">
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+            }
+
+            #wrapper {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                background: gray;
+                text-align: center;
+            }
+
+            #wrapper1 {
+                width: 100%;
+                position: absolute;
+                top: 70px;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="form-menu" id="wrapper" action="/mainmenu" method="post">
+            <div>
+                <button type="submit" name="submit" value="mainmenu" >mainmenu</button>
+                <button type="submit" name="submit" value="article">article</button>
+                <button type="submit" name="submit" value="logout">logout</button>
+            </div>
+        </form>
+
+        <form class="form-listuser" id="wrapper1" action="/mainmenu" method="post">
+            {{range .}}
+                <div> 
+                    <table width="20%" style="margin: 0 auto; border:1px solid;text-align:center">
+                    <tr>
+                        <th width="9px"></th>
+                        <th width="1px"></th> 
+                        <th width="80px"></th>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" name="submit" value= {{ .Username }}>Edit</button></td>
+                        <td>:</td>
+                        <td>{{ .Username }}</td>
+                    </tr>
+                    </table>
+                </div>
+            {{else}}
+                <div>
+                    <strong>Tidak ada user</strong>
+                </div>
+            {{end}}
+        </form>
+    </body>
+</html>

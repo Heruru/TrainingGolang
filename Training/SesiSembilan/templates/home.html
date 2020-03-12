@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+
+        <link href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css" rel="stylesheet">
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+            }
+
+            #wrapper {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                background: gray;
+                text-align: center;
+            }
+
+            #wrapper1 {
+                width: 100%;
+                position: absolute;
+                top: 70px;
+            }
+        </style>
+
+        <meta charset="UTF-8">
+        <title>Home</title>
+    </head>
+    <body>
+        <form class="form-menu" id="wrapper" action="/home" method="post">
+            <div>
+                <button type="submit" name="submit" value="home" >home</button>
+                <button type="submit" name="submit" value="about">about</button>
+                <button type="submit" name="submit" value="contactus">contact us</button>
+                <button type="submit" name="submit" value="login">login</button>
+            </div>
+        </form>
+
+        <form class="form-listuser" id="wrapper1" action="/mainmenu" method="post">
+            {{range .}}
+                <div> 
+                    <h5><span># {{ .Subject }}</span></h5>
+                    <p>{{ .News }}</p>
+                    </br>
+                    </br>
+                </div>
+            {{else}}
+                <div>
+                    <strong>Tidak ada article</strong>
+                </div>
+            {{end}}
+        </form>
+    </body>
+</html>

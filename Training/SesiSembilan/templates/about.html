@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+
+        <link href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css" rel="stylesheet">
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+            }
+
+            #wrapper {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background: gray;
+            text-align: center;
+            }
+
+            #about {
+            width: 100%;
+            position: absolute;
+            top: 70px;
+            text-align: center;
+            }
+        </style>
+
+        <meta charset="UTF-8">
+        <title>About</title>
+    </head>
+    <body>
+        <form class="form-menu" id="wrapper" action="/home" method="post">
+            <div>
+                <button type="submit" name="submit" value="home" >home</button>
+                <button type="submit" name="submit" value="about">about</button>
+                <button type="submit" name="submit" value="contactus">contact us</button>
+                <button type="submit" name="submit" value="login">login</button>
+            </div>
+        </form>
+
+        <!-- About Container -->
+        <div id="about">
+        <div >
+            <h5><span>ABOUT</span></h5>
+            <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+            <div>
+            <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+            <p>Chef, Coffeeist and Owner: Liam Brown</p>
+            </div>
+            <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
+            <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+        </div>
+        </div>
+    </body>
+</html>
